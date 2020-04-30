@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MyPasswords</string>
+    <string name="Main_Page_Title">  Your Passowrds List</string>
+    <string name="addNewSiteLabel">Add Site</string>
+    <string name="addNewEditSiteLabel">Edit Site</string>
+    <string name="sitenamePlaceholderText"> site Name</string>
+    <string name="userNamePlaceholderText"> user Name</string>
+    <string name="PasswordPlaceholderText"> password</string>
+    <string name="addButtonText"> Add</string>
+    <string name="editButtonText"> Update</string>
+    <string name="deleteBtnText"> Remove</string>
+    <string name="noApplications"> You Have No Sites Yet .....</string>
+    <string name="switchBtnText"> Dark Theme </string>
+    switchBtnText
+</resources>

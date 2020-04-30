@@ -1,0 +1,31 @@
+<resources>
+
+    <!-- Base application theme. -->
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--    </style>-->
+
+    <style name="lightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#3700B3  </item>
+        <item name="viewBackground">#eeeeee  </item>
+        <item name="textsColor">#222222  </item>
+        <item name="placholderColor">#222222  </item>
+        <item name="colorAccent">#3700B3  </item>
+        <item name="otherThemePrimaryColor">#000000  </item>
+    </style>
+
+    <style name="darkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#3700B3  </item>
+        <item name="viewBackground">#2D2F31  </item>
+        <item name="textsColor">#FFFFFF  </item>
+        <item name="placholderColor">#222222  </item>
+        <item name="colorAccent">#3700B3  </item>
+        <item name="otherThemePrimaryColor">#000000  </item>
+    </style>
+
+
+
+</resources>

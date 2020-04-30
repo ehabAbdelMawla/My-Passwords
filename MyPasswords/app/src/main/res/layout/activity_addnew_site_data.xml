@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddnewSiteData">
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView"-->
+    <!--        android:layout_width="185dp"-->
+    <!--        android:layout_height="180dp"-->
+    <!--        android:layout_marginStart="113dp"-->
+    <!--        android:layout_marginLeft="113dp"-->
+    <!--        android:layout_marginTop="38dp"-->
+    <!--        android:layout_marginEnd="113dp"-->
+    <!--        android:layout_marginRight="113dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/world" />-->
+
+
+    <!--    <Button-->
+    <!--        android:id="@+id/button"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="162dp"-->
+    <!--        android:layout_marginLeft="162dp"-->
+    <!--        android:layout_marginTop="13dp"-->
+    <!--        android:layout_marginEnd="162dp"-->
+    <!--        android:layout_marginRight="162dp"-->
+    <!--        android:text="Button"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/deleteBtn" />-->
+
+    <ScrollView
+        android:background="?attr/viewBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="185dp"
+                    android:layout_height="185dp"
+                    android:layout_marginStart="113dp"
+                    android:layout_marginLeft="113dp"
+                    android:layout_marginTop="38dp"
+                    android:layout_marginEnd="113dp"
+                    android:layout_marginRight="113dp"
+                    android:src="@drawable/world"
+                    app:civ_border_color="?attr/viewBackground"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginBottom="5dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:backgroundTint="?attr/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:srcCompat="@android:drawable/ic_menu_gallery" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <EditText
+                android:id="@+id/siteName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+
+
+                android:focusable="auto"
+                android:gravity="center"
+                android:hint="@string/sitenamePlaceholderText"
+                android:inputType="textPersonName"
+                android:textColor="?attr/textsColor"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="?attr/placholderColor"
+                android:textColorLink="@color/colorPrimary"
+                android:textCursorDrawable="@null" />
+
+            <EditText
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+
+
+                android:focusable="auto"
+                android:gravity="center"
+                android:hint="@string/userNamePlaceholderText"
+                android:inputType="textPersonName"
+                android:textColor="?attr/textsColor"
+                android:textColorHighlight="@color/colorPrimary"
+                android:textColorHint="?attr/placholderColor"
+                android:textColorLink="@color/colorPrimary"
+                android:textCursorDrawable="@null" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+
+
+                android:focusable="auto"
+                android:gravity="center"
+                android:hint="@string/PasswordPlaceholderText"
+                android:inputType="textPersonName"
+                android:textColor="?attr/textsColor"
+                android:textColorHighlight="@color/colorPrimary"
+                android:textColorHint="?attr/placholderColor"
+                android:textColorLink="@color/colorPrimary"
+                android:textCursorDrawable="@null" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/addButton"
+                    android:layout_width="185dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="113dp"
+                    android:layout_marginLeft="113dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="113dp"
+                    android:layout_marginRight="113dp"
+                    android:background="?attr/colorPrimary"
+                    android:text="@string/addButtonText"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/deleteBtn"
+                    android:layout_width="185dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="113dp"
+                    android:layout_marginLeft="113dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="113dp"
+                    android:layout_marginRight="113dp"
+                    android:background="#AF2A2A"
+                    android:maxWidth="100dp"
+                    android:text="@string/deleteBtnText"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/addButton" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
