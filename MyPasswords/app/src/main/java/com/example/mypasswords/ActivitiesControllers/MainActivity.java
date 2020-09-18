@@ -1,20 +1,20 @@
-package com.example.mypasswords;
+package com.example.mypasswords.ActivitiesControllers;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
-import android.widget.TextView;
 
+import com.example.mypasswords.DataBase.DB;
+import com.example.mypasswords.Models.Site;
+import com.example.mypasswords.R;
+import com.example.mypasswords.Threads.getDataThread;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.ByteArrayOutputStream;
@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         dbdd=new DB(this);
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ "+dbdd.getCurrentTheme());
-        currentTheme =dbdd.getCurrentTheme().equalsIgnoreCase("light")?R.style.lightTheme:R.style.darkTheme;
+        currentTheme =dbdd.getCurrentTheme().equalsIgnoreCase("light")? R.style.lightTheme:R.style.darkTheme;
         setTheme(currentTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -49,12 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     dbdd.changeTheme("light");
                 }
-
                 recreate();
             }
         });
 
-        System.out.println("ONSTART FIREEEEEEEEEEEEEEEEEEEEEEEEEE  E E E E E E E*E *E* E* *E *E *");
+
         super.onStart();
 
         FloatingActionButton addBtn= findViewById(R.id.AddNewPasswordButton);
@@ -76,9 +74,6 @@ public class MainActivity extends AppCompatActivity {
         ListView rootView= findViewById(R.id.rootView);
         getDataThread s=new getDataThread(thisView,rootView);
         s.start();
-
-
-
 
 
     while(getDataThread.itemsAdapter==null){

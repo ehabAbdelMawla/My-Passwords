@@ -1,7 +1,10 @@
-package com.example.mypasswords;
+package com.example.mypasswords.Threads;
 
 import android.app.Activity;
-import android.widget.Toast;
+
+import com.example.mypasswords.DataBase.DB;
+import com.example.mypasswords.ActivitiesControllers.MainActivity;
+import com.example.mypasswords.Models.Site;
 
 public class DBThread  extends Thread{
 

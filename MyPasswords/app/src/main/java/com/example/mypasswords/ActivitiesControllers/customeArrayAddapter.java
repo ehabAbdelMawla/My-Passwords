@@ -1,7 +1,6 @@
-package com.example.mypasswords;
+package com.example.mypasswords.ActivitiesControllers;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.mypasswords.Models.Site;
 import com.example.mypasswords.R;
-import com.example.mypasswords.Site;
 
 import java.util.ArrayList;
 
@@ -58,12 +57,12 @@ public class customeArrayAddapter<S> extends ArrayAdapter<Site> {
             Site currentSite = getItem(position);
 
             // Find the TextView in the list_item.xml layout with the ID version_name
-            TextView siteName = (TextView) listItemView.findViewById(R.id.siteName);
+            TextView siteName =  listItemView.findViewById(R.id.siteName);
             // Get the version name from the current AndroidFlavor object and
             // set this text on the name TextView
             siteName.setText(currentSite.getSiteName());
 
-            TextView username = (TextView) listItemView.findViewById(R.id.userName);
+            TextView username =listItemView.findViewById(R.id.userName);
             // Get the version number from the current AndroidFlavor object and
             // set this text on the number TextView
             username.setText(currentSite.getUserName());
@@ -71,37 +70,23 @@ public class customeArrayAddapter<S> extends ArrayAdapter<Site> {
 
             // Find the TextView in the list_item.xml layout with the ID version_numbe
 
-            TextView pass = (TextView) listItemView.findViewById(R.id.pass);
+            TextView pass =listItemView.findViewById(R.id.pass);
             // Get the version number from the current AndroidFlavor object and
             // set this text on the number TextView
             pass.setText(currentSite.getPass());
 
             // Find the ImageView in the list_item.xml layout with the ID list_item_icon
-            ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
+            ImageView iconView = listItemView.findViewById(R.id.list_item_icon);
 
-//            // Get the image resource ID from the current AndroidFlavor object and
-//            // set the image to iconView
 
-//            iconView.setImageResource(R.drawable.world);
-//            currentSite.getImg()
+
             if(currentSite.getImg()!=null){
-                System.out.println("======== IF =======");
-//                Bitmap bmp = BitmapFactory.decodeByteArray( currentSite.getImg(), 0,  currentSite.getImg().length);
-//                iconView.setImageBitmap(Bitmap.createScaledBitmap(bmp, iconView.getWidth(),
-//                        iconView.getHeight(), false));
                 iconView.setImageBitmap(BitmapFactory.decodeByteArray( currentSite.getImg(), 0,  currentSite.getImg().length));
             }
             else{
                 iconView.setImageResource(R.drawable.world);
-                System.out.println("======== ELSE =======");
             }
 
-
-
-
-//            iconView.setImageBitmap(bmp);
-            // Return the whole list item layout (containing 2 TextViews and an ImageView)
-            // so that it can be shown in the ListVie
             return listItemView;
         }
 

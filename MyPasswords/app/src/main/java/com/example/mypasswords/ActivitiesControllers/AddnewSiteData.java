@@ -1,53 +1,50 @@
-package com.example.mypasswords;
+package com.example.mypasswords.ActivitiesControllers;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.mypasswords.DataBase.DB;
+import com.example.mypasswords.Models.Site;
+import com.example.mypasswords.R;
+import com.example.mypasswords.Threads.DBThread;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import javax.xml.transform.Result;
-
 
 public class AddnewSiteData extends AppCompatActivity {
 
     final int GET_FROM_GALLERY = 1;
-byte[] imageBytes;
+    byte[] imageBytes;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-
         //Detects request codes
         if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
             Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                bitmap = Bitmap.createScaledBitmap(bitmap, 250, 250, true);
                 imageBytes=MainActivity.getBitmapAsByteArray(bitmap);
 
                 ((ImageView) findViewById(R.id.imageView)).setImageBitmap(bitmap);
-                System.out.println("#############################"+imageBytes);
+
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 ((ImageView) findViewById(R.id.imageView)).setImageResource(R.drawable.world);
@@ -65,11 +62,7 @@ byte[] imageBytes;
         setTheme(MainActivity.currentTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addnew_site_data);
-
-
-
 //        Start Upload Image
-
         FloatingActionButton galaryBtn=(FloatingActionButton) findViewById(R.id.button);
         galaryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,14 +72,13 @@ byte[] imageBytes;
             }
         });
 //        ====== ======= ========   =======
-        final AddnewSiteData superThis=(AddnewSiteData)this;
-        final Button addButon=(Button) findViewById(R.id.addButton);
-        final Button remove=(Button) findViewById(R.id.deleteBtn);
+            final AddnewSiteData superThis=(AddnewSiteData)this;
+            final Button addButon=(Button) findViewById(R.id.addButton);
+            final Button remove=(Button) findViewById(R.id.deleteBtn);
 
-        if(MainActivity.tempSite==null){
-            remove.setVisibility(View.GONE);
-
-        }else{
+            if(MainActivity.tempSite==null){
+                remove.setVisibility(View.GONE);
+            }else{
             superThis.setTitle(R.string.addNewEditSiteLabel);
             remove.setVisibility(View.VISIBLE);
             addButon.setText(R.string.editButtonText);
@@ -98,10 +90,10 @@ byte[] imageBytes;
 
             EditText pass=((EditText)findViewById(R.id.password));
             pass.setText(MainActivity.tempSite.getPass());
-if( MainActivity.tempSite.getImg()!=null){
-    imageBytes=MainActivity.tempSite.getImg();
-            ((ImageView) findViewById(R.id.imageView)).setImageBitmap(BitmapFactory.decodeByteArray( MainActivity.tempSite.getImg(), 0,  MainActivity.tempSite.getImg().length));
-}
+            if( MainActivity.tempSite.getImg()!=null){
+                imageBytes=MainActivity.tempSite.getImg();
+                        ((ImageView) findViewById(R.id.imageView)).setImageBitmap(BitmapFactory.decodeByteArray( MainActivity.tempSite.getImg(), 0,  MainActivity.tempSite.getImg().length));
+            }
             remove.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -157,8 +149,7 @@ if( MainActivity.tempSite.getImg()!=null){
                     return;
                 }
                 DB db=new DB(superThis);
-//                imageBytes
-                System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+//                ==== imageBytes ====
                 Site s=new Site(0,siteName,userName,pass,imageBytes);
                 String action=addButon.getText().toString();
                 DBThread mm=new DBThread(s,action,superThis);
@@ -168,7 +159,6 @@ if( MainActivity.tempSite.getImg()!=null){
                     result=DBThread.result;
                 }
                 if(action.equalsIgnoreCase("add")){
-
                     if(result>0){
                         Toast.makeText(getApplicationContext(),"Site Added Successfully",Toast.LENGTH_SHORT).show();
                         superThis.finish();
@@ -179,7 +169,6 @@ if( MainActivity.tempSite.getImg()!=null){
                     else{
                         Toast.makeText(getApplicationContext(),"Uncatched Error!",Toast.LENGTH_SHORT).show();}}
                 else{
-
                     if(result>0){
                         Toast.makeText(getApplicationContext(),"Site Updated Successfully",Toast.LENGTH_SHORT).show();
                         superThis.finish();
@@ -197,6 +186,8 @@ if( MainActivity.tempSite.getImg()!=null){
     @Override
     protected void onStart(){
         super.onStart();
+        Button addBtn= findViewById(R.id.addButton);
+        addBtn.requestFocus();
 
     }
 

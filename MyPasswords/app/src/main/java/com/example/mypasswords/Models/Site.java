@@ -1,27 +1,19 @@
-package com.example.mypasswords;
+package com.example.mypasswords.Models;
 
-import android.media.Image;
 
 public class Site {
     private int id;
     private String siteName;
     private String userName;
     private String pass;
-    private byte[]  img;
-//    public Site(int id,String siteName, String userName, String pass) {
-//        this.id=id;
-//        this.siteName = siteName;
-//        this.userName = userName;
-//        this.pass = pass;
-//
-//    }
-    public Site(int id,String siteName, String userName, String pass,byte[] img) {
-        this.id=id;
+    private byte[] img;
+
+    public Site(int id, String siteName, String userName, String pass, byte[] img) {
+        this.id = id;
         this.siteName = siteName;
         this.userName = userName;
         this.pass = pass;
-        this.img=img;
-        System.out.println("IMG++++> "+ img);
+        this.img = img;
     }
 
     public String getSiteName() {
@@ -57,11 +49,11 @@ public class Site {
     }
 
 
-    public byte[]  getImg() {
+    public byte[] getImg() {
         return img;
     }
 
-    public void setImg(byte[]  img) {
+    public void setImg(byte[] img) {
         this.img = img;
     }
 }

@@ -15,15 +15,23 @@
         <item name="placholderColor">#222222  </item>
         <item name="colorAccent">#3700B3  </item>
         <item name="otherThemePrimaryColor">#000000  </item>
+        <item name="denger">#AF2A2A  </item>
     </style>
 
     <style name="darkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#3700B3  </item>
         <item name="viewBackground">#2D2F31  </item>
         <item name="textsColor">#FFFFFF  </item>
-        <item name="placholderColor">#222222  </item>
+        <item name="placholderColor">#EEEEEE  </item>
         <item name="colorAccent">#3700B3  </item>
         <item name="otherThemePrimaryColor">#000000  </item>
+        <item name="denger">#AF2A2A  </item>
+    </style>
+
+
+<!--    Splash Style  -->
+    <style name="SplashStyle" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_design </item>
     </style>
 
 

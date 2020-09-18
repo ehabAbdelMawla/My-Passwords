@@ -7,6 +7,7 @@
         <attr name="colorAccent" format="color"></attr>
         <attr name="placholderColor" format="color"></attr>
         <attr name="otherThemePrimaryColor" format="color"></attr>
+        <attr name="denger" format="color"></attr>
     </declare-styleable>
 
 

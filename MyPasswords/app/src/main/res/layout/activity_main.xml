@@ -5,7 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/viewBackground"
-    tools:context=".MainActivity">
+    tools:context=".ActivitiesControllers.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:background="@android:color/transparent"
+            android:gravity="center|start"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/Main_Page_Title"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textIsSelectable="false"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@android:color/transparent"
+            android:checked="false"
+            android:hapticFeedbackEnabled="true"
+            android:includeFontPadding="true"
+            android:shadowColor="?attr/otherThemePrimaryColor"
+            android:text="@string/switchBtnText"
+            android:textColor="#ffffff"
+            android:textColorHighlight="?attr/otherThemePrimaryColor"
+            android:textColorHint="?attr/otherThemePrimaryColor"
+            android:textColorLink="?attr/otherThemePrimaryColor"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:switchPadding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/AddNewPasswordButton"
@@ -16,28 +69,12 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:focusable="true"
+        android:hapticFeedbackEnabled="false"
         app:backgroundTint="?attr/colorPrimary"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_add_circle_outline_white_18dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?attr/colorPrimary"
-        android:gravity="center|left"
-        android:paddingLeft="15dp"
-        android:text="@string/Main_Page_Title"
-        android:textAllCaps="false"
-        android:textColor="#ffffff"
-        android:textIsSelectable="false"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:srcCompat="@drawable/add" />
 
     <ListView
         android:id="@+id/rootView"
@@ -46,35 +83,9 @@
         android:layout_marginTop="50dp"
         android:background="?attr/viewBackground"
         android:cacheColorHint="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/noApplications"
-        android:visibility="gone"></TextView>
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:background="?attr/colorPrimary"
-        android:checked="false"
-        android:hapticFeedbackEnabled="true"
-        android:shadowColor="?attr/otherThemePrimaryColor"
-        android:text="@string/switchBtnText"
-        android:textColor="#ffffff"
-        android:textColorHighlight="?attr/otherThemePrimaryColor"
-        android:textColorHint="?attr/otherThemePrimaryColor"
-        android:textColorLink="?attr/otherThemePrimaryColor"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

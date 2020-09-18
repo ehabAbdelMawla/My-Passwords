@@ -9,14 +9,16 @@
         android:roundIcon="@drawable/smart_key"
         android:supportsRtl="true"
         android:theme="@style/lightTheme">
-        <activity android:name=".AddnewSiteData" android:label="@string/addNewSiteLabel"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ActivitiesControllers.splach" android:theme="@style/SplashStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ActivitiesControllers.AddnewSiteData"
+            android:label="@string/addNewSiteLabel" />
+        <activity android:name=".ActivitiesControllers.MainActivity"></activity>
     </application>
 
 </manifest>
