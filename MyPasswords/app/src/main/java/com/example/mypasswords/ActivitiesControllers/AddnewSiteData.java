@@ -40,7 +40,7 @@ public class AddnewSiteData extends AppCompatActivity {
             Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
-                bitmap = Bitmap.createScaledBitmap(bitmap, 250, 250, true);
+                bitmap = Bitmap.createScaledBitmap(bitmap, 250, 250,true);
                 imageBytes=MainActivity.getBitmapAsByteArray(bitmap);
 
                 ((ImageView) findViewById(R.id.imageView)).setImageBitmap(bitmap);

@@ -8,16 +8,24 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.mypasswords.DataBase.DB;
+import com.example.mypasswords.HuaweiAds.HuaweiAd;
 import com.example.mypasswords.Models.Site;
 import com.example.mypasswords.R;
 import com.example.mypasswords.Threads.getDataThread;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.huawei.hms.ads.AdListener;
+import com.huawei.hms.ads.AdParam;
+import com.huawei.hms.ads.HwAds;
+import com.huawei.hms.ads.InterstitialAd;
 
 import java.io.ByteArrayOutputStream;
+import java.security.AlgorithmParameterGenerator;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static int currentTheme;
     public static Site tempSite;
+    private HuaweiAd ad=new HuaweiAd(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         dbdd=new DB(this);
@@ -32,12 +42,17 @@ public class MainActivity extends AppCompatActivity {
         setTheme(currentTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.v("MainActivity","onCreate Fire");
 
+        Log.v("MainActivity","onCreate Fire");
     }
+
+
+
+
 
     @Override
     protected void onStart() {
+
        final Switch switchTheme=findViewById(R.id.switch1);
         switchTheme.setChecked(dbdd.getCurrentTheme().equalsIgnoreCase("dark"));
         switchTheme.setOnClickListener(new View.OnClickListener() {
@@ -60,12 +75,9 @@ public class MainActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                                 tempSite=null;
                 Intent addNewPasswordPage=new Intent(thisView,AddnewSiteData.class);
                 startActivity(addNewPasswordPage);
-
             }
         });
 
@@ -88,11 +100,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         rootView.setAdapter(getDataThread.itemsAdapter);
-
+        ad.loadInterstitialAd("video");
     }
     public static byte[] getBitmapAsByteArray(Bitmap bitmap) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream);
         return outputStream.toByteArray();
     }
+
+
+
+
+
 }
+
